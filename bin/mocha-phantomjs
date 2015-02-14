@@ -75,7 +75,7 @@ program
   .option('-C, --no-color',              'disable color escape codes')
   .option('-p, --path <path>',           'path to PhantomJS binary')
   .option('--ignore-resource-errors',    'ignore resource errors');
-  
+
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
@@ -90,7 +90,7 @@ program.parse(process.argv);
 if (!program.args.length) { program.outputHelp(); process.exit(1); };
 if (program.agent) { settings.userAgent = program.agent; }
 
-var script   = fs.realpathSync(__dirname + '/../lib/mocha-phantomjs.coffee');
+var script   = fs.realpathSync(__dirname + '/../lib/mocha-phantomjs.js');
 var reporter = program.reporter;
 var page     = function(){
   var arg = program.args[0];
